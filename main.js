@@ -1,21 +1,36 @@
 // CLASSES USING PROTOTYPE
 function User(name,age) {
+	// SET INITIAL PROPERTIES
 	this.name = name;
 	this.age = age;
 }
 
-User.prototype.sayHi = function() {
-	console.log(this.name);
+// ADDS FUNCTION TO USER CLASS
+// RETURNS STRING (NAME OF USER)
+User.prototype.getName = function() {
+	return (this.name);
 }
 
+// ADDS FUNCTION TO USER CLASS
+// RETURNS INT (AGE OF USER)
 User.prototype.getAge = function () {
-	console.log(this.age);
+	return (this.age);
 }
 
+// ADDS FUNCTION TO USER CLASS
+// RETURNS STRING (NAME AND AGE OF USER)
+User.prototype.getNameAndAge = function () {
+	const name = this.getName()
+	const age = this.getAge()
 
+	return (`${name} is ${age} years old`)
+}
+
+// MAKE INSTANCE OF USER AND TEST METHODS
 let user = new User("John",58);
-user.sayHi();
-user.getAge();
+console.log(user.getName());
+console.log(user.getAge());
+console.log(user.getNameAndAge())
 
 // USING CLASS SYNTAX
 class Person {
@@ -25,19 +40,22 @@ class Person {
 	}
 
 	getName() {
-		console.log(this.name)
+		return (this.name)
 	}
 
 	getAge() {
-		console.log(this.age)
+		return (this.age)
 	}
 
-	sayHi() {
-		console.log(this.name)
+	getNameAndAge() {
+		const name = this.getName()
+		const age = this.getAge();
+		return (`${name} is ${age} years old`)
 	}
 }
 
 let Matt = new Person("Matt Kelly", 38)
-Matt.sayHi()
 
-Matt.getAge()
+console.log(Matt.getAge())
+
+console.log(Matt.getNameAndAge())
